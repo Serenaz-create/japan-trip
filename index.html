@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日本 7 天 · 旅行手册</title>
+<style>
+:root{
+  --bg:#f5f2ec; --card:#ffffff; --ink:#2b2b2b; --sub:#7a7568; --line:#e6e0d4;
+  --brand:#c04f3a; --brand-soft:#f3e2dc; --ok:#3f7d54; --warn:#b07a2a;
+  --shadow:0 2px 10px rgba(60,50,30,.07);
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+}
+body.night{
+  --bg:#171a1f; --card:#21252c; --ink:#e8e4da; --sub:#9a958a; --line:#333842;
+  --brand:#e08a72; --brand-soft:#3a2c28; --ok:#7dbb95; --warn:#d8a75e;
+  --shadow:0 2px 12px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.55;transition:background .4s,color .4s}
+.wrap{max-width:680px;margin:0 auto;padding:14px 14px 60px}
+h2.sec{font-size:17px;margin:26px 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2.sec::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--brand)}
+.card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px;margin-bottom:12px;border:1px solid var(--line)}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;vertical-align:2px}
+.b-ok{background:var(--brand-soft);color:var(--brand)}
+.b-draft{background:transparent;color:var(--warn);border:1px dashed var(--warn)}
+.sub{color:var(--sub);font-size:12.5px}
+a{color:var(--brand);text-decoration:none}
+.mono{font-family:var(--mono)}
+.hr{border:none;border-top:1px solid var(--line);margin:10px 0}
+.hero{text-align:center;padding:22px 14px 16px}
+.hero .title{font-size:24px;font-weight:800;letter-spacing:1px}
+.hero .meta{color:var(--sub);font-size:13px;margin-top:4px}
+.next-label{font-size:13px;color:var(--sub);margin-top:16px}
+.next-name{font-size:17px;font-weight:700;margin:2px 0}
+.next-time{font-size:12.5px;color:var(--sub)}
+.cd{display:flex;justify-content:center;gap:8px;margin:12px 0 4px}
+.cd .cell{min-width:64px;background:var(--brand-soft);border-radius:12px;padding:8px 4px 6px}
+.cd .num{font-family:var(--mono);font-size:26px;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+.cd .lab{font-size:11px;color:var(--sub)}
+.warnbox{border:1.5px dashed var(--warn);border-radius:12px;padding:10px 12px;font-size:13.5px;color:var(--warn);margin-bottom:12px}
+.bk{padding:10px 0;border-bottom:1px dashed var(--line)}
+.bk:last-child{border-bottom:none;padding-bottom:0}
+.bk .row1{display:flex;justify-content:space-between;align-items:baseline}
+.bk .nm{font-weight:700;font-size:15px}
+.bk .tag{font-size:11px;color:var(--sub)}
+.bk .dt{font-family:var(--mono);font-size:14px;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.bk .info{font-size:13px;color:var(--sub)}
+.day{margin-bottom:12px}
+.day-head{display:flex;align-items:center;gap:10px;cursor:pointer}
+.day-head .dnum{width:44px;height:44px;border-radius:12px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:800}
+.day-head .dnum .d{font-size:16px;line-height:1}
+.day-head .dnum .w{font-size:10px;font-weight:400;opacity:.85}
+.day-head .tt{flex:1}
+.day-head .tt .t1{font-weight:700;font-size:15px}
+.day-head .arr{color:var(--sub);font-size:12px;transition:transform .25s}
+.day.open .arr{transform:rotate(180deg)}
+.day-body{display:none;padding:10px 2px 2px}
+.day.open .day-body{display:block}
+.tl{margin:6px 0 10px}
+.tl .ev{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.tl .ev:last-child{border-bottom:none}
+.tl .tm{font-family:var(--mono);font-size:12px;color:var(--sub);width:96px;flex-shrink:0;padding-top:2px;font-variant-numeric:tabular-nums}
+.tl .ct{font-size:14px;flex:1}
+.tl .ct .loc{font-weight:600}
+.tl .ct .note{font-size:12px;color:var(--sub)}
+.flag{font-size:11px;color:var(--warn);border:1px solid var(--warn);border-radius:6px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+.stayline{font-size:12.5px;color:var(--sub);margin-top:6px}
+.day-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;font-size:13px;padding:7px 14px;border-radius:10px;background:var(--brand);color:#fff;font-weight:600}
+.mapbox{margin-top:10px;background:var(--brand-soft);border-radius:12px;padding:6px}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--sub);margin-top:8px}
+.legend .sw{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:2px;margin-right:4px}
+.todo li,.tips li{margin:7px 0 7px 18px;font-size:14px}
+ul{list-style:disc}
+.food li,.shop li{margin:7px 0 7px 18px;font-size:14px}
+.shop .addr{display:block;font-size:12px;color:var(--sub)}
+table.foodtb{width:100%;border-collapse:collapse;font-size:13.5px}
+table.foodtb td,table.foodtb th{border-bottom:1px dashed var(--line);padding:7px 4px;text-align:left;vertical-align:top}
+table.foodtb th{font-size:12px;color:var(--sub);font-weight:600}
+footer{text-align:center;color:var(--sub);font-size:11.5px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===== 顶部 ===== -->
+<div class="card hero">
+  <div class="title">日本 · 7 天</div>
+  <div class="meta">2027.02.18 — 02.25 ｜ 2 人 ｜ 东京 → 河口湖 →（夜巴）→ 大阪 → 京都一日 → 关西机场</div>
+  <div class="next-label">此刻关注 · 下一个行程</div>
+  <div class="next-name" id="evName">—</div>
+  <div class="next-time" id="evTime">—</div>
+  <div class="cd">
+    <div class="cell"><div class="num" id="cdD">--</div><div class="lab">天</div></div>
+    <div class="cell"><div class="num" id="cdH">--</div><div class="lab">时</div></div>
+    <div class="cell"><div class="num" id="cdM">--</div><div class="lab">分</div></div>
+    <div class="cell"><div class="num" id="cdS">--</div><div class="lab">秒</div></div>
+  </div>
+  <div class="next-time" id="cdNote">按你所在设备的时区计算，跨时区不会算错</div>
+</div>
+
+<!-- ===== 行程总览地图 ===== -->
+<h2 class="sec">行程总览</h2>
+<div class="card">
+  <svg viewBox="0 0 360 330" xmlns="http://www.w3.org/2000/svg">
+    <path d="M345,38 C352,58 336,74 342,94 C347,114 322,124 317,140 C312,156 287,150 266,161 C243,171 236,150 216,161 C192,173 186,158 166,166 C146,174 141,192 130,207 C121,220 101,231 89,249 C79,263 68,259 71,246 C74,231 94,216 107,196 C119,179 134,168 150,158 C170,146 194,151 214,139 C234,128 259,133 279,119 C299,106 309,90 314,72 C319,56 330,46 345,38 Z"
+      fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 富士山 -->
+    <path d="M262,96 L272,76 L282,96 Z" fill="currentColor" opacity=".18"/>
+    <text x="252" y="112" font-size="9.5" fill="currentColor" opacity=".55">富士山 · 河口湖</text>
+    <!-- D1 去程 -->
+    <path d="M336,306 C300,270 318,190 306,112" fill="none" stroke="#3b82f6" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+    <text x="320" y="300" font-size="10" fill="#3b82f6">香港</text>
+    <!-- D3 东京→河口湖 -->
+    <path d="M300,100 C278,92 262,84 252,78" fill="none" stroke="#f59e0b" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- D4 河口湖→大阪 夜巴 -->
+    <path d="M246,80 C200,110 150,160 110,196" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+    <text x="168" y="128" font-size="9.5" fill="#10b981">夜行巴士</text>
+    <!-- D6 大阪⇄京都 -->
+    <path d="M108,196 C122,188 136,178 148,170" fill="none" stroke="#ec4899" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- D7 大阪→关西机场→香港 -->
+    <path d="M106,200 C99,210 92,218 86,224" fill="none" stroke="#14b8a6" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M84,226 C74,252 104,290 144,306" fill="none" stroke="#14b8a6" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+    <!-- 城市点 -->
+    <g font-size="12" font-weight="700">
+      <circle cx="305" cy="103" r="6" fill="#3b82f6"/><text x="315" y="98" fill="currentColor">东京</text>
+      <circle cx="250" cy="77" r="6" fill="#f59e0b"/><text x="210" y="66" fill="currentColor">河口湖</text>
+      <circle cx="150" cy="168" r="6" fill="#ec4899"/><text x="158" y="164" fill="currentColor">京都（一日）</text>
+      <circle cx="107" cy="197" r="6" fill="#8b5cf6"/><text x="117" y="206" fill="currentColor">大阪</text>
+      <circle cx="85" cy="225" r="5" fill="#14b8a6"/><text x="34" y="228" fill="currentColor">关西机场</text>
+    </g>
+    <!-- 住宿标记 -->
+    <g font-size="9.5">
+      <circle cx="318" cy="116" r="7" fill="none" stroke="#3b82f6" stroke-width="2"/>
+      <text x="328" y="120" fill="#3b82f6">2/18–19</text>
+      <circle cx="240" cy="66" r="7" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3 3"/>
+      <text x="198" y="54" fill="#f59e0b">2/20 待确认</text>
+      <circle cx="96" cy="186" r="7" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="3 3"/>
+      <text x="60" y="176" fill="#8b5cf6">2/22–23</text>
+    </g>
+  </svg>
+  <div class="legend">
+    <span><span class="sw" style="background:#3b82f6"></span>D1 2/18 香港飞东京</span>
+    <span><span class="sw" style="background:#ef4444"></span>D2 2/19 东京</span>
+    <span><span class="sw" style="background:#f59e0b"></span>D3 2/20 东京→河口湖</span>
+    <span><span class="sw" style="background:#10b981"></span>D4 2/21 富士五湖→夜巴</span>
+    <span><span class="sw" style="background:#8b5cf6"></span>D5 2/22 大阪</span>
+    <span><span class="sw" style="background:#ec4899"></span>D6 2/23 京都一日</span>
+    <span><span class="sw" style="background:#14b8a6"></span>D7 2/24 大阪飞香港</span>
+  </div>
+  <hr class="hr">
+  <div class="sub">入住一览：2/18–19 东京·安心旅馆（已确认）｜ 2/20 河口湖·攻略提及未具名（预订待确认）｜ 2/21 夜巴（车上过夜）｜ 2/22–23 大阪·Hotel LiVEMAX（预订待确认）</div>
+</div>
+
+<!-- ===== 已确认订单 ===== -->
+<h2 class="sec">机票 / 住宿</h2>
+<div class="card">
+  <div class="bk">
+    <div class="row1"><span class="nm">✈ 捷星日本 GK028（去程）</span><span class="tag">已出票</span></div>
+    <div class="dt">2/18（周四）01:10 香港 T1 → 06:20 东京成田<span class="sub">（当地）</span></div>
+    <div class="info">飞行 4h10m ｜ 出行人：ZHANG/JIJUAN、WANG/YUTING</div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">✈ 乐桃航空 MM067（回程 · 红眼）</span><span class="tag">已出票</span></div>
+    <div class="dt">2/24（周三）21:05 大阪关西 T2 → 2/25 00:45 香港 T1 <span class="sub">（当地时间）</span></div>
+    <div class="info">飞行 4h40m ｜ 攻略流程：18:00 值机 → 19:45 安检出境 → 20:30 到登机口</div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">🏨 安心旅馆 Tokyo Woman 银座汐留店</span><span class="tag">预订成功</span></div>
+    <div class="dt">2/18 入住 → 2/20 离店（2 晚）</div>
+    <div class="info">女性专用胶囊床位 ×2 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Anshin%20oyado%20Tokyo%20Woman%20Ginza%20Shiodome">Google 地图打开</a></div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">🏨 Hotel LiVEMAX Osaka Yodoyabashi（大阪·淀屋桥）</span><span class="tag">预订待确认</span></div>
+    <div class="dt">2/22 → 2/24（2 晚，按攻略）</div>
+    <div class="info">攻略中出现的酒店，未见订单截图 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel%20LiVEMAX%20Osaka%20Yodoyabashi">Google 地图打开</a></div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">🏨 河口湖住宿（2/20，未具名）</span><span class="tag">待确认</span></div>
+    <div class="info">攻略写「宿泊先／酒店寄存行李」，具体哪家未提供</div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">🚌 夜行巴士 河口湖 → 京都/大阪</span><span class="tag">待购票</span></div>
+    <div class="dt">2/21 20:32 发车 → 2/22 ~06:53 抵大阪</div>
+    <div class="info">攻略标注 20:00–20:25 上车点集合（厕所+确认车票）</div>
+  </div>
+  <div class="bk">
+    <div class="row1"><span class="nm">🚌 高速巴士 东京站 → 河口湖</span><span class="tag">待购票</span></div>
+    <div class="dt">2/20 ~09:00 发车 → ~11:00–11:30 抵达</div>
+    <div class="info">攻略注明「时间以 2027 班次为准」</div>
+  </div>
+</div>
+
+<!-- ===== 逐日行程 ===== -->
+<h2 class="sec">逐日行程 <span class="badge b-ok">内容来自你的攻略 PDF</span></h2>
+<div id="days"></div>
+
+<!-- ===== 吃饭推荐 ===== -->
+<h2 class="sec">吃饭推荐 <span class="badge b-ok">来自攻略</span></h2>
+<div class="card">
+  <table class="foodtb">
+    <tr><th>日期</th><th>地点</th><th>推荐</th><th>约人民币</th></tr>
+    <tr><td>2/18</td><td>东京</td><td>天丼 / 寿司</td><td>30–90 元</td></tr>
+    <tr><td>2/19</td><td>东京</td><td>乌冬 / 拉面；可丽饼 / 甜品</td><td>20–65 元</td></tr>
+    <tr><td>2/20</td><td>河口湖</td><td>ほうとう（馎饦）</td><td>55–85 元</td></tr>
+    <tr><td>2/21</td><td>河口湖</td><td>吉田乌冬</td><td>30–50 元</td></tr>
+    <tr><td>2/22</td><td>大阪</td><td>午餐 + 夜巴后晚餐（攻略标注 80–100 元）</td><td>80–100 元</td></tr>
+    <tr><td>2/23</td><td>京都 / 大阪</td><td>京都特色午餐、抹茶甜品；晚餐大阪烧</td><td>20–85 元</td></tr>
+    <tr><td>2/24</td><td>大阪</td><td>大阪烧 / 拉面；章鱼烧</td><td>20–65 元</td></tr>
+  </table>
+</div>
+
+<!-- ===== 待办清单 ===== -->
+<h2 class="sec">待办清单</h2>
+<div class="card">
+  <div class="warnbox">红色为高风险项，处理完告诉我，我来更新页面。</div>
+  <ul class="todo">
+    <li class="risk">预订 / 确认河口湖 2/20 住宿（攻略未写明酒店名）</li>
+    <li class="risk">确认大阪 Hotel LiVEMAX Osaka Yodoyabashi 是否已订（2/22–2/24 两晚）</li>
+    <li class="risk">购买 2/21 20:32 河口湖 → 京都/大阪 夜行巴士车票</li>
+    <li class="risk">确认 ZHANG/JIJUAN 也在 MM067 回程航班上（截图只见 WANG/YUTING）</li>
+    <li>购买 2/20 东京站 → 河口湖 高速巴士票（时间以 2027 班次为准）</li>
+    <li>安排 2/17 深夜前往香港机场的交通（01:10 起飞）</li>
+    <li>办理日本签证 / 检查护照有效期</li>
+    <li>购买交通 IC 卡、准备日元现金</li>
+    <li>办理境外流量（eSIM / WiFi）</li>
+  </ul>
+</div>
+
+<!-- ===== 实用贴士 ===== -->
+<h2 class="sec">实用贴士 <span class="badge b-ok">来自攻略备注</span></h2>
+<div class="card">
+  <ul class="tips">
+    <li><strong>时差</strong>：日本比香港快 1 小时。页面所有时间按当地时区显示。</li>
+    <li><strong>第一晚</strong>：攻略备注 21:00 睡觉，「第一晚不要熬」——凌晨起飞几乎没睡，2/18 按表早休。</li>
+    <li><strong>夜巴（2/21）</strong>：20:32 发车，20:00–20:25 到上车点（先上厕所+确认车票）；车上过夜省一晚住宿费，次日 06:53 到大阪。</li>
+    <li><strong>夜巴后缓冲</strong>：2/22 上午淀屋桥周边先休息缓冲，22:00 前睡觉「今晚早点休息」。</li>
+    <li><strong>行李寄存</strong>：大阪酒店「房间未开放也可寄存」；2/21 从河口湖住宿出发前完成整理。</li>
+    <li><strong>回程流程（2/24）</strong>：16:40 回酒店取行李 → 17:00 南海难波站 → ~18:00 抵关西机场 → 18:00 值机托运（<strong>先称重量、整理免税品</strong>）→ 19:45 安检出境 → 20:30 到登机口。</li>
+    <li><strong>购物顺序</strong>：心斋桥按攻略路线走——优衣库 → 鹤羽药妆 → ZARA → PARCO → 唐吉诃德 → 戎桥格力高打卡。</li>
+  </ul>
+</div>
+
+<footer>依据订单截图与你的攻略 PDF 生成 ｜ 预订号等敏感信息未收录</footer>
+</div>
+
+<script>
+/* ================= 数据区 ================= */
+const JST="+09:00", HKT="+08:00";
+const EVENTS=[
+  {t:"2027-02-18T01:10:00"+HKT, name:"GK028 起飞 · 香港 T1 → 东京", tz:"香港时间"},
+  {t:"2027-02-18T06:20:00"+JST, name:"GK028 落地 · 东京", tz:"日本时间"},
+  {t:"2027-02-24T21:05:00"+JST, name:"MM067 起飞 · 大阪关西 T2 → 香港", tz:"日本时间"},
+  {t:"2027-02-25T00:45:00"+HKT, name:"MM067 落地 · 香港 T1", tz:"香港时间"},
+];
+
+/* 每天地点全部来自攻略 PDF；nav:false 表示不进多点导航 */
+const DAYS=[
+ {n:1,date:"2/18",w:"周四",title:"香港 → 东京：浅草 · 上野 · 银座",color:"#3b82f6",
+  stay:"安心旅馆 Tokyo Woman 银座汐留店（已确认）",
+  pts:[
+   {tm:"01:10–06:20",loc:"GK028 香港 → 东京成田",q:"Narita International Airport",note:"入境+取行李 → 先寄存行李到酒店",flag:"已出票"},
+   {tm:"08:30–09:00",loc:"新桥 → 浅草（电车）",q:"Shimbashi Station",nav:false},
+   {tm:"09:00–11:30",loc:"雷门 → 仲见世通 → 浅草寺",q:"Senso-ji Temple Kaminarimon"},
+   {tm:"顺路",loc:"金户神社",q:"金戸神社",note:"按你的要求加在浅草寺后面"},
+   {tm:"11:30–12:30",loc:"浅草午餐",note:"推荐：天丼 / 寿司"},
+   {tm:"12:30–14:00",loc:"隅田公园 / 浅草周边",q:"Sumida Park",note:"看天气调整"},
+   {tm:"备选",loc:"新川公园（隅田川畔）",q:"Shinkawa Park Tokyo Chuo-ku",note:"茅场町站步行 10 分·免费无休·视野好；可与隅田公园二选一（日比谷线浅草→茅场町约 15 分）｜2 月下旬无樱花",flag:"备选",nav:false},
+   {tm:"14:00–15:00",loc:"浅草 → 上野（电车）",q:"Ueno Station",nav:false},
+   {tm:"15:00–16:00",loc:"阿美横町",q:"Ameyoko Shopping Street",note:"逛街"},
+   {tm:"16:00–16:30",loc:"上野 → 新桥（电车）",nav:false},
+   {tm:"16:30–17:30",loc:"酒店入住 + 休息",q:"Anshin oyado Tokyo Woman Ginza Shiodome",note:"一定留休息时间"},
+   {tm:"17:30–19:30",loc:"银座 / 新桥 晚餐+逛街",q:"Ginza Tokyo"},
+   {tm:"21:00",loc:"睡觉",note:"第一晚不要熬",nav:false},
+  ]},
+ {n:2,date:"2/19",w:"周五",title:"东京：明治神宫 · 原宿 · 表参道 · 涩谷 · 新宿",color:"#ef4444",
+  stay:"安心旅馆 Tokyo Woman 银座汐留店（同上）",
+  pts:[
+   {tm:"09:00–09:30",loc:"前往明治神宫",q:"Meiji Jingu",nav:false},
+   {tm:"09:30–11:00",loc:"明治神宫",q:"Meiji Jingu Shrine"},
+   {tm:"11:00–12:00",loc:"原宿 / 竹下通",q:"Takeshita Street"},
+   {tm:"12:00–13:00",loc:"午餐",note:"推荐：乌冬 / 拉面",nav:false},
+   {tm:"13:00–14:00",loc:"表参道",q:"Omotesando Tokyo"},
+   {tm:"14:00–14:40",loc:"Kiddy Land",q:"Kiddy Land Omotesando"},
+   {tm:"14:40–15:20",loc:"Cat Street",q:"Cat Street Shibuya"},
+   {tm:"15:20–16:30",loc:"涩谷 Scramble Crossing",q:"Shibuya Scramble Crossing"},
+   {tm:"16:30–17:10",loc:"SHIBUYA 109",q:"SHIBUYA 109"},
+   {tm:"17:10–17:50",loc:"SHIBUYA LOFT",q:"SHIBUYA LOFT",note:"必逛",flag:"必逛"},
+   {tm:"17:50–18:20",loc:"涩谷 → 新宿",q:"Shinjuku Station",nav:false},
+   {tm:"18:20–19:30",loc:"新宿东口 + 伊势丹",q:"Isetan Shinjuku"},
+   {tm:"19:30–20:00",loc:"歌舞伎町简单走走",q:"Kabukicho"},
+   {tm:"20:30",loc:"回酒店",q:"Anshin oyado Tokyo Woman Ginza Shiodome",nav:false},
+  ]},
+ {n:3,date:"2/20",w:"周六",title:"东京 → 河口湖：大石公园 · 富士山",color:"#f59e0b",
+  stay:"河口湖住宿（攻略提及，未具名，待确认）",
+  pts:[
+   {tm:"07:00–08:00",loc:"起床早餐 + 收拾退房",nav:false},
+   {tm:"08:00–08:20",loc:"新桥 → 东京站（电车）",q:"Tokyo Station"},
+   {tm:"08:20–08:50",loc:"东京站买水 / 找站台",nav:false},
+   {tm:"~09:00",loc:"东京 → 河口湖（高速巴士）",q:"Tokyo Station Bus Terminal",note:"~11:00–11:30 抵达；时间以 2027 班次为准",flag:"待购票"},
+   {tm:"11:30–12:00",loc:"酒店寄存行李",nav:false},
+   {tm:"12:00–13:00",loc:"午餐",note:"推荐：ほうとう（馎饦）",nav:false},
+   {tm:"13:00–14:00",loc:"河口湖站周边",q:"Kawaguchiko Station"},
+   {tm:"14:00–14:30",loc:"前往大石公园（巴士）",nav:false},
+   {tm:"14:30–16:00",loc:"大石公园 + 富士山景",q:"Oishi Park Kawaguchiko",note:"核心景点",flag:"核心景点"},
+   {tm:"16:00–16:30",loc:"返回河口湖",nav:false},
+   {tm:"16:30–17:30",loc:"河口湖畔散步",q:"Lake Kawaguchiko"},
+   {tm:"19:00–20:00",loc:"河口湖夜景",q:"Lake Kawaguchiko",nav:false},
+   {tm:"21:00",loc:"回住宿休息",nav:false},
+  ]},
+ {n:4,date:"2/21",w:"周日",title:"山中湖 · 忍野八海 → 夜行巴士",color:"#10b981",
+  stay:"夜行巴士（车上过夜，省住宿费）",
+  pts:[
+   {tm:"07:00–07:30",loc:"起床 + 收拾行李",note:"晚上坐夜巴",nav:false},
+   {tm:"早上",loc:"THE PARK 早餐",q:"THE PARK Kawaguchiko",note:"按你要求新增",flag:"新增"},
+   {tm:"~09:00",loc:"河口湖 → 山中湖（巴士）",nav:false},
+   {tm:"10:00–11:15",loc:"山中湖",q:"Lake Yamanaka",note:"看富士山"},
+   {tm:"11:15–12:10",loc:"山中湖 → 忍野八海",nav:false},
+   {tm:"12:10–13:00",loc:"忍野八海",q:"Oshino Hakkai"},
+   {tm:"13:00–14:30",loc:"午餐 + 忍野周边",note:"推荐：吉田乌冬",nav:false},
+   {tm:"14:30–15:30",loc:"返回河口湖",nav:false},
+   {tm:"15:30–17:30",loc:"回住宿休息 + 洗澡 + 整理行李",note:"很重要",flag:"很重要",nav:false},
+   {tm:"17:30–19:30",loc:"晚餐 + 河口湖站附近休息",q:"Kawaguchiko Station",nav:false},
+   {tm:"20:00–20:25",loc:"前往夜巴上车点",q:"Kawaguchiko Station",note:"厕所 + 确认车票",nav:false},
+   {tm:"20:32",loc:"河口湖 → 京都/大阪（夜行巴士）",q:"Kawaguchiko Station",note:"次日 ~06:53 抵大阪",flag:"待购票"},
+  ]},
+ {n:5,date:"2/22",w:"周一",title:"夜巴抵大阪：心斋桥 · 道顿堀",color:"#8b5cf6",
+  stay:"Hotel LiVEMAX Osaka Yodoyabashi（预订待确认）",
+  pts:[
+   {tm:"~06:53",loc:"夜巴抵达大阪",q:"Osaka Station",note:"下车+厕所+整理"},
+   {tm:"08:30–09:30",loc:"前往 Hotel LiVEMAX Osaka Yodoyabashi",q:"Hotel LiVEMAX Osaka Yodoyabashi"},
+   {tm:"09:30–10:00",loc:"酒店寄存行李",note:"房间未开放也可寄存",nav:false},
+   {tm:"10:00–11:00",loc:"淀屋桥周边 + 休息",q:"Yodoyabashi Station",note:"夜巴后缓冲"},
+   {tm:"11:00–12:00",loc:"淀屋桥 → 心斋桥（电车）",q:"Shinsaibashi Station",nav:false},
+   {tm:"12:00–13:30",loc:"心斋桥筋商店街",q:"Shinsaibashisuji Shopping Street",note:"第一轮购物"},
+   {tm:"14:30–16:00",loc:"大丸心斋桥",q:"Daimaru Shinsaibashi"},
+   {tm:"16:00–16:30",loc:"OPA",q:"Shinsaibashi OPA"},
+   {tm:"16:30–17:00",loc:"America-mura",q:"America-mura Osaka",note:"简单逛"},
+   {tm:"17:00–18:00",loc:"道顿堀 + 戎桥",q:"Ebisubashi Bridge"},
+   {tm:"18:00–19:00",loc:"晚餐",note:"推荐：大阪烧",nav:false},
+   {tm:"20:30–21:30",loc:"回酒店洗澡+整理，22:00 睡觉",q:"Hotel LiVEMAX Osaka Yodoyabashi",note:"前一晚坐夜巴，今晚早点休息",nav:false},
+  ]},
+ {n:6,date:"2/23",w:"周二",title:"京都一日：清水寺 · 祇园 · 锦市场",color:"#ec4899",
+  stay:"Hotel LiVEMAX Osaka Yodoyabashi（同上）",
+  pts:[
+   {tm:"07:00–08:10",loc:"起床 · 洗漱收拾 · 早餐",nav:false},
+   {tm:"08:10–08:30",loc:"酒店 → 车站",q:"Yodoyabashi Station",nav:false},
+   {tm:"08:30–09:30",loc:"大阪 → 京都（电车）",q:"Kyoto Station"},
+   {tm:"09:30–10:00",loc:"京都站 → 清水寺（巴士/步行）",nav:false},
+   {tm:"10:00–11:30",loc:"清水寺",q:"Kiyomizu-dera"},
+   {tm:"11:30–12:30",loc:"三年坂 + 二年坂",q:"Sannenzaka Ninenzaka"},
+   {tm:"12:30–13:00",loc:"八坂之塔",q:"Yasaka Pagoda Hokan-ji"},
+   {tm:"13:00–13:40",loc:"午餐",note:"推荐：京都特色午餐",nav:false},
+   {tm:"13:40–14:20",loc:"八坂神社",q:"Yasaka Shrine"},
+   {tm:"14:20–15:00",loc:"祇园 + 花见小路",q:"Hanamikoji Street Gion"},
+   {tm:"15:00–15:40",loc:"鸭川",q:"Kamo River Kyoto",note:"散步"},
+   {tm:"15:40–16:30",loc:"锦市场",q:"Nishiki Market Kyoto",note:"推荐：抹茶甜品"},
+   {tm:"16:30–17:20",loc:"河原町",q:"Kawaramachi Kyoto",note:"购物"},
+   {tm:"17:20–17:50",loc:"前往京都站",q:"Kyoto Station",nav:false},
+   {tm:"~18:00–19:00",loc:"京都 → 大阪（电车）",q:"Kyoto Station",nav:false},
+   {tm:"19:00–19:30",loc:"回酒店 + 休息",q:"Hotel LiVEMAX Osaka Yodoyabashi",nav:false},
+   {tm:"19:30–20:30",loc:"晚餐",note:"推荐：大阪烧",nav:false},
+   {tm:"20:30–21:30",loc:"酒店附近散步 + 整理，22:00 睡觉",q:"Hotel LiVEMAX Osaka Yodoyabashi",nav:false},
+  ]},
+ {n:7,date:"2/24",w:"周三",title:"大阪最后购物 → 关西机场 → 香港",color:"#14b8a6",
+  stay:"机上过夜（次日 00:45 抵香港）",
+  pts:[
+   {tm:"10:00",loc:"退房 + 寄存行李",q:"Hotel LiVEMAX Osaka Yodoyabashi",note:"先称重量+整理免税品"},
+   {tm:"10:00–10:20",loc:"淀屋桥 → 心斋桥（电车）",nav:false},
+   {tm:"10:30–12:00",loc:"心斋桥筋（最后购物）",q:"Shinsaibashisuji Shopping Street"},
+   {tm:"12:00–13:00",loc:"大丸心斋桥",q:"Daimaru Shinsaibashi",note:"免税+最后购买"},
+   {tm:"14:00–14:30",loc:"America-mura",q:"America-mura Osaka",note:"快速逛"},
+   {tm:"14:30–15:30",loc:"道顿堀 + 戎桥",q:"Ebisubashi Bridge"},
+   {tm:"15:30–16:00",loc:"最后伴手礼",q:"Don Quijote Dotonbori"},
+   {tm:"16:00–17:00",loc:"难波 → 回酒店取行李 → 南海难波站",q:"Nankai Namba Station",nav:false},
+   {tm:"~17:00",loc:"难波 → 关西机场（南海电铁）",q:"Kansai International Airport",note:"~18:00 抵达"},
+   {tm:"18:00–19:00",loc:"值机 + 托运行李",q:"Kansai International Airport Terminal 2",nav:false},
+   {tm:"19:00–20:30",loc:"安检出境 → 免税 → 登机口",nav:false},
+   {tm:"21:05–00:45",loc:"MM067 大阪 → 香港",q:"Kansai International Airport Terminal 2",note:"2/25 00:45 落地香港 T1",flag:"已出票"},
+  ]},
+];
+
+/* ================= 渲染 ================= */
+function gmapUrl(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
+function dirUrl(day){
+  const pts=day.pts.filter(p=>p.q&&p.nav!==false);
+  if(pts.length<2)return "";
+  return "https://www.google.com/maps/dir/"+pts.map(p=>encodeURIComponent(p.q)).join("/")+"/";
+}
+function miniMap(day){
+  const pts=day.pts.filter(p=>p.q);
+  if(pts.length<2)return "";
+  const W=320, H=40+Math.ceil(pts.length/3)*38;
+  const pos=pts.map((p,i)=>{
+    const r=Math.floor(i/3), c=i%3;
+    const per=Math.min(3,pts.length-r*3);
+    const x=per===1?W/2:36+c*((W-72)/(per-1));
+    return {p,x,y:34+r*38};
+  });
+  const line=pos.map(o=>`${o.x},${o.y}`).join(" ");
+  return `<div class="mapbox"><svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="${line}" fill="none" stroke="${day.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    ${pos.map((o,i)=>`<g><circle cx="${o.x}" cy="${o.y}" r="5" fill="${day.color}"/>
+      <text x="${o.x}" y="${o.y-9}" font-size="9" text-anchor="middle" fill="currentColor">${i+1}</text></g>`).join("")}
+  </svg></div>`;
+}
+document.getElementById("days").innerHTML=DAYS.map(d=>`
+<div class="card day" id="day${d.n}">
+  <div class="day-head" onclick="document.getElementById('day${d.n}').classList.toggle('open')">
+    <div class="dnum" style="background:${d.color}"><span class="d">D${d.n}</span><span class="w">${d.w}</span></div>
+    <div class="tt">
+      <div class="t1">${d.date} ${d.title}</div>
+      <div class="sub">点击展开逐时段行程与导航</div>
+    </div>
+    <span class="arr">▾</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      ${d.pts.map(p=>`
+      <div class="ev">
+        <div class="tm">${p.tm}</div>
+        <div class="ct">
+          <span class="loc">${p.q&&p.nav!==false?`<a target="_blank" rel="noopener" href="${gmapUrl(p.q)}">${p.loc}</a>`:p.loc}</span>
+          ${p.flag?`<span class="flag">${p.flag}</span>`:""}
+          ${p.note?`<div class="note">${p.note}</div>`:""}
+        </div>
+      </div>`).join("")}
+    </div>
+    <div class="stayline">当晚住宿：${d.stay}</div>
+    ${miniMap(d)}
+    <div class="day-actions">
+      ${dirUrl(d)?`<a class="btn" target="_blank" rel="noopener" href="${dirUrl(d)}">全天多点导航</a>`:""}
+    </div>
+  </div>
+</div>`).join("");
+document.getElementById("day1").classList.add("open");
+
+/* ================= 倒计时（时区安全） ================= */
+const pad=x=>String(x).padStart(2,"0");
+function tick(){
+  const now=Date.now();
+  const next=EVENTS.find(e=>Date.parse(e.t)>now);
+  if(!next){
+    document.getElementById("evName").textContent="行程已结束，欢迎回家";
+    ["cdD","cdH","cdM","cdS"].forEach(id=>document.getElementById(id).textContent="0");
+    return;
+  }
+  const dt=new Date(next.t);
+  document.getElementById("evName").textContent=next.name;
+  document.getElementById("evTime").textContent=
+    dt.toLocaleString("zh-CN",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false})
+    +"（"+next.tz+"）";
+  let s=Math.floor((Date.parse(next.t)-now)/1000);
+  const d=Math.floor(s/86400);s%=86400;
+  const h=Math.floor(s/3600);s%=3600;
+  const m=Math.floor(s/60);s%=60;
+  document.getElementById("cdD").textContent=d;
+  document.getElementById("cdH").textContent=pad(h);
+  document.getElementById("cdM").textContent=pad(m);
+  document.getElementById("cdS").textContent=pad(s);
+}
+tick();setInterval(tick,1000);
+
+/* ================= 昼夜自动配色 ================= */
+function applyTheme(){
+  const h=new Date().getHours();
+  document.body.classList.toggle("night",h>=18||h<6);
+}
+applyTheme();setInterval(applyTheme,60000);
+</script>
+</body>
+</html>
