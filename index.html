@@ -153,7 +153,7 @@ footer{text-align:center;color:var(--sub);font-size:11.5px;margin-top:30px}
     <span><span class="sw" style="background:#14b8a6"></span>D7 2/24 大阪飞香港</span>
   </div>
   <hr class="hr">
-  <div class="sub">入住一览：2/18–19 东京·安心旅馆（已确认）｜ 2/20 河口湖·攻略提及未具名（预订待确认）｜ 2/21 夜巴（车上过夜）｜ 2/22–23 大阪·Hotel LiVEMAX（预订待确认）</div>
+  <div class="sub">入住一览：2/18–19 东京·安心旅馆（已确认）｜ 2/20 河口湖·Toyoko Inn 富士河口湖大桥（已确认）｜ 2/21 夜巴（车上过夜）｜ 2/22–23 大阪·Hotel LiVEMAX（已确认）</div>
 </div>
 
 <!-- ===== 已确认订单 ===== -->
@@ -175,13 +175,14 @@ footer{text-align:center;color:var(--sub);font-size:11.5px;margin-top:30px}
     <div class="info">女性专用胶囊床位 ×2 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Anshin%20oyado%20Tokyo%20Woman%20Ginza%20Shiodome">Google 地图打开</a></div>
   </div>
   <div class="bk">
-    <div class="row1"><span class="nm">🏨 Hotel LiVEMAX Osaka Yodoyabashi（大阪·淀屋桥）</span><span class="tag">预订待确认</span></div>
-    <div class="dt">2/22 → 2/24（2 晚，按攻略）</div>
-    <div class="info">攻略中出现的酒店，未见订单截图 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel%20LiVEMAX%20Osaka%20Yodoyabashi">Google 地图打开</a></div>
+    <div class="row1"><span class="nm">🏨 Hotel LiVEMAX Osaka Yodoyabashi（大阪·淀屋桥）</span><span class="tag">已确认</span></div>
+    <div class="dt">2/22 入住 → 2/24 离店（2 晚，两笔订单：2/22–2/23、2/23–2/24）</div>
+    <div class="info">Agoda 已确认 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel%20LiVEMAX%20Osaka%20Yodoyabashi">Google 地图打开</a></div>
   </div>
   <div class="bk">
-    <div class="row1"><span class="nm">🏨 河口湖住宿（2/20，未具名）</span><span class="tag">待确认</span></div>
-    <div class="info">攻略写「宿泊先／酒店寄存行李」，具体哪家未提供</div>
+    <div class="row1"><span class="nm">🏨 Toyoko Inn 富士河口湖大桥（河口湖）</span><span class="tag">已确认</span></div>
+    <div class="dt">2/20 入住 → 2/21 离店（1 晚）</div>
+    <div class="info">Agoda 已确认 ｜ <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Toyoko%20Inn%20Fuji%20Kawaguchiko%20Ohashi">Google 地图打开</a></div>
   </div>
   <div class="bk">
     <div class="row1"><span class="nm">🚌 夜行巴士 河口湖 → 京都/大阪</span><span class="tag">待购票</span></div>
@@ -219,8 +220,6 @@ footer{text-align:center;color:var(--sub);font-size:11.5px;margin-top:30px}
 <div class="card">
   <div class="warnbox">红色为高风险项，处理完告诉我，我来更新页面。</div>
   <ul class="todo">
-    <li class="risk">预订 / 确认河口湖 2/20 住宿（攻略未写明酒店名）</li>
-    <li class="risk">确认大阪 Hotel LiVEMAX Osaka Yodoyabashi 是否已订（2/22–2/24 两晚）</li>
     <li class="risk">购买 2/21 20:32 河口湖 → 京都/大阪 夜行巴士车票</li>
     <li class="risk">确认 ZHANG/JIJUAN 也在 MM067 回程航班上（截图只见 WANG/YUTING）</li>
     <li>购买 2/20 东京站 → 河口湖 高速巴士票（时间以 2027 班次为准）</li>
@@ -297,13 +296,13 @@ const DAYS=[
    {tm:"20:30",loc:"回酒店",q:"Anshin oyado Tokyo Woman Ginza Shiodome",nav:false},
   ]},
  {n:3,date:"2/20",w:"周六",title:"东京 → 河口湖：大石公园 · 富士山",color:"#f59e0b",
-  stay:"河口湖住宿（攻略提及，未具名，待确认）",
+  stay:"Toyoko Inn Fuji Kawaguchiko Ohashi（已确认）",
   pts:[
    {tm:"07:00–08:00",loc:"起床早餐 + 收拾退房",nav:false},
    {tm:"08:00–08:20",loc:"新桥 → 东京站（电车）",q:"Tokyo Station"},
    {tm:"08:20–08:50",loc:"东京站买水 / 找站台",nav:false},
    {tm:"~09:00",loc:"东京 → 河口湖（高速巴士）",q:"Tokyo Station Bus Terminal",note:"~11:00–11:30 抵达；时间以 2027 班次为准",flag:"待购票"},
-   {tm:"11:30–12:00",loc:"酒店寄存行李",nav:false},
+   {tm:"11:30–12:00",loc:"酒店寄存行李",q:"Toyoko Inn Fuji Kawaguchiko Ohashi",note:"东横INN 富士河口湖大桥，Agoda 已确认"},
    {tm:"12:00–13:00",loc:"午餐",note:"推荐：ほうとう（馎饦）",nav:false},
    {tm:"13:00–14:00",loc:"河口湖站周边",q:"Kawaguchiko Station"},
    {tm:"14:00–14:30",loc:"前往大石公园（巴士）",nav:false},
@@ -330,7 +329,7 @@ const DAYS=[
    {tm:"20:32",loc:"河口湖 → 京都/大阪（夜行巴士）",q:"Kawaguchiko Station",note:"次日 ~06:53 抵大阪",flag:"待购票"},
   ]},
  {n:5,date:"2/22",w:"周一",title:"夜巴抵大阪：心斋桥 · 道顿堀",color:"#8b5cf6",
-  stay:"Hotel LiVEMAX Osaka Yodoyabashi（预订待确认）",
+  stay:"Hotel LiVEMAX Osaka Yodoyabashi（已确认）",
   pts:[
    {tm:"~06:53",loc:"夜巴抵达大阪",q:"Osaka Station",note:"下车+厕所+整理"},
    {tm:"08:30–09:30",loc:"前往 Hotel LiVEMAX Osaka Yodoyabashi",q:"Hotel LiVEMAX Osaka Yodoyabashi"},
