@@ -227,6 +227,8 @@ footer{text-align:center;color:var(--sub);font-size:11.5px;margin-top:30px}
     <li>办理日本签证 / 检查护照有效期</li>
     <li>购买交通 IC 卡、准备日元现金</li>
     <li>办理境外流量（eSIM / WiFi）</li>
+    <li>购买日本电话卡：SoftBank T8981 原生卡（出发前激活）</li>
+    <li>检查港澳通行证有效期 / 签注（经香港往返）</li>
     <li>Kusaka Curry 排队避开饭点（11:30 开门前到或 14:00 后，周三公休）</li>
   </ul>
 </div>
@@ -267,7 +269,8 @@ const DAYS=[
    {tm:"08:30–09:00",loc:"新桥 → 浅草（电车）",q:"Shimbashi Station",nav:false},
    {tm:"09:00–11:30",loc:"雷门 → 仲见世通 → 浅草寺",q:"Senso-ji Temple Kaminarimon"},
    {tm:"顺路",loc:"金户神社",q:"金戸神社",note:"按你的要求加在浅草寺后面"},
-   {tm:"11:30–12:30",loc:"浅草午餐",note:"推荐：天丼 / 寿司"},
+   {tm:"顺路",loc:"龟十 铜锣烧（雷门旁）",q:"亀十 浅草",note:"老铺人气高、常提前售完，路过雷门时顺手买",flag:"新增"},
+   {tm:"11:30–12:30",loc:"午餐：浅草牛光（和牛まぶし）",q:"Asakusa Ushimitsu",note:"浅草站步行1分钟｜11:30 开门，可提前预约；和牛盖饭 1000–2000 日元",flag:"新增"},
    {tm:"12:30–14:00",loc:"隅田公园 / 浅草周边",q:"Sumida Park",note:"看天气调整"},
    {tm:"备选",loc:"新川公园（隅田川畔）",q:"Shinkawa Park Tokyo Chuo-ku",note:"茅场町站步行 10 分·免费无休·视野好；可与隅田公园二选一（日比谷线浅草→茅场町约 15 分）｜2 月下旬无樱花",flag:"备选",nav:false},
    {tm:"14:00–15:00",loc:"浅草 → 上野（电车）",q:"Ueno Station",nav:false},
@@ -275,6 +278,7 @@ const DAYS=[
    {tm:"16:00–16:30",loc:"上野 → 新桥（电车）",nav:false},
    {tm:"16:30–17:30",loc:"酒店入住 + 休息",q:"Anshin oyado Tokyo Woman Ginza Shiodome",note:"一定留休息时间"},
    {tm:"17:30–19:30",loc:"银座 / 新桥 晚餐+逛街",q:"Ginza Tokyo"},
+   {tm:"19:45–20:40",loc:"芝公园 · 东京塔夜景（一吻定情同款机位）",q:"芝公園 東京タワー",note:"御成门站 A6 口出站即到；拍完电车 2 站回酒店，21:00 前睡",flag:"新增"},
    {tm:"21:00",loc:"睡觉",note:"第一晚不要熬",nav:false},
   ]},
  {n:2,date:"2/19",w:"周五",title:"东京：明治神宫 · 原宿 · 表参道 · 涩谷 · 新宿",color:"#ef4444",
@@ -375,6 +379,7 @@ const DAYS=[
    {tm:"10:00–10:20",loc:"淀屋桥 → 心斋桥（电车）",nav:false},
    {tm:"10:30–12:00",loc:"心斋桥筋（最后购物）",q:"Shinsaibashisuji Shopping Street"},
    {tm:"12:00–13:00",loc:"大丸心斋桥",q:"Daimaru Shinsaibashi",note:"免税+最后购买"},
+   {tm:"13:00–13:50",loc:"Masuzakiya 难波本店（毛线 · 退税）",q:"マスザキヤ ナンバ本店",note:"难波高岛屋东邻，难波站步行5分；Rowan 等进口线最多，满额可直接免税——记得带护照；营业至傍晚，出发前先确认当天营业",flag:"新增"},
    {tm:"14:00–14:30",loc:"America-mura",q:"America-mura Osaka",note:"快速逛"},
    {tm:"14:30–15:30",loc:"道顿堀 + 戎桥",q:"Ebisubashi Bridge"},
    {tm:"15:30–16:00",loc:"最后伴手礼",q:"Don Quijote Dotonbori"},
