@@ -47,13 +47,7 @@
   h1 small{display:block;font-size:.3em;letter-spacing:.3em;color:var(--ink2);margin-top:9px;font-weight:400}
   .meta-line{margin-top:12px;font-size:clamp(11px,2.1vw,13.5px);color:var(--ink2);
     border-left:3px solid var(--ice);padding-left:10px;line-height:1.7}
-  .stamp{position:absolute;right:max(16px,4.4vw);top:clamp(14px,4vw,50px);
-    width:86px;height:86px;border:2.5px solid var(--shu);border-radius:50%;color:var(--shu);
-    display:grid;place-content:center;text-align:center;font-size:15px;line-height:1.15;
-    letter-spacing:.14em;transform:rotate(-8deg);background:rgba(255,255,255,.45)}
-  html[data-mode="night"] .stamp{background:rgba(16,28,48,.42)}
-  .stamp b{display:block;font-size:11px;letter-spacing:.2em;margin-top:4px;opacity:.8}
-  .mode{position:absolute;right:max(16px,4.4vw);top:calc(clamp(14px,4vw,50px) + 98px);
+  .mode{position:absolute;right:max(16px,4.4vw);top:clamp(14px,4vw,50px);
     display:flex;align-items:center;gap:6px;cursor:pointer;font-family:inherit;
     font-size:12px;letter-spacing:.14em;color:var(--ink);background:rgba(255,255,255,.8);
     border:1.6px solid var(--blue);border-radius:999px;padding:6px 14px}
@@ -196,8 +190,7 @@
   @media (prefers-reduced-motion:reduce){.cloud,.star,.tl,.snowfall circle{animation:none}}
   @media (max-width:660px){
     .hero-copy{max-width:70vw}
-    .stamp{width:62px;height:62px;font-size:12px}
-    .mode{top:calc(clamp(14px,4vw,50px) + 72px);font-size:11px;padding:5px 11px}
+    .mode{font-size:11px;padding:5px 11px}
     .cd .cell{min-width:58px}
     .cd .num{font-size:23px}
     .tl .tm{width:78px;font-size:11.5px}
@@ -444,7 +437,6 @@
       <h1>日本 · 7 天<small>WINTER IN JAPAN</small></h1>
       <div class="meta-line">2027.02.18 — 02.25 ｜ 2 人 ｜ 东京 → 河口湖 →（夜巴）→ 大阪 → 京都一日 → 关西机场</div>
     </div>
-    <div class="stamp">二人旅<b>2027</b></div>
     <button class="mode" id="modeBtn" type="button">❄ 昼 · 富士山</button>
   </div>
 </header>
