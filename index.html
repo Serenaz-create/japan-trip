@@ -332,19 +332,43 @@
       <path d="M666 172 q13-20 40-16 q11-15 36-9 q21-9 37 2 q22 0 20 15 q-5 13-31 13 l-86 2 q-19 0 -16-7z" opacity=".6"/>
     </g>
 
-    <!-- 东京塔（远景，塔基被楼群遮挡） -->
-    <g filter="url(#wobN)" transform="translate(600 300) scale(.8) translate(-600 -300)">
-      <path d="M600 150 L612 236 L638 330 L672 430 L700 470 L500 470 L528 430 L562 330 L588 236 Z" fill="url(#towerN)" opacity=".95"/>
-      <g stroke="#9c4636" stroke-width="2" opacity=".45">
-        <path d="M588 236 L612 236"/><path d="M570 300 L630 300"/><path d="M556 356 L644 356"/>
-        <path d="M540 410 L660 410"/><path d="M524 452 L676 452"/>
-        <path d="M588 236 L556 356"/><path d="M612 236 L644 356"/>
-        <path d="M556 356 L524 452"/><path d="M644 356 L676 452"/>
+    <!-- 东京塔（红白经典 · 加粗线条） -->
+    <g filter="url(#wobN)">
+      <path d="M600 118 V198" stroke="#e8734f" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <path d="M591 138 H609 M594 154 H606" stroke="#e8734f" stroke-width="3.2" stroke-linecap="round" opacity=".9"/>
+      <circle class="tl" cx="600" cy="118" r="6" fill="#fff2ce"/>
+
+      <!-- 主瞭望台 -->
+      <rect x="548" y="352" width="104" height="30" rx="4" fill="#fdf7ef" stroke="#e8734f" stroke-width="2.4"/>
+      <path d="M557 360 v14 M566 360 v14 M575 360 v14 M584 360 v14 M593 360 v14 M602 360 v14 M611 360 v14 M620 360 v14 M629 360 v14 M638 360 v14" stroke="#e8734f" stroke-width="2.6" opacity=".6"/>
+      <path d="M548 358 H652" stroke="#e8734f" stroke-width="3.4" opacity=".9"/>
+      <!-- 顶层瞭望台 -->
+      <rect x="578" y="196" width="44" height="18" rx="3" fill="#fdf7ef" stroke="#e8734f" stroke-width="2.4"/>
+      <path d="M578 203 H622" stroke="#e8734f" stroke-width="1.8" opacity=".55"/>
+
+      <g stroke="#e8734f" stroke-linecap="round" fill="none">
+        <!-- 上部塔身 -->
+        <path d="M582 214 L567 352" stroke-width="3.8"/>
+        <path d="M618 214 L633 352" stroke-width="3.8"/>
+        <path d="M577 258 H623 M572 305 H628" stroke-width="2.3" opacity=".75"/>
+        <path d="M577 258 L628 305 M623 258 L572 305" stroke-width="2.1" opacity=".55"/>
+        <!-- 下部塔腿（外扩 + 拱门） -->
+        <path d="M560 382 C546 420 516 462 480 500" stroke-width="4.2"/>
+        <path d="M640 382 C654 420 684 462 720 500" stroke-width="4.2"/>
+        <path d="M578 382 C566 420 542 460 514 498" stroke-width="2.8" opacity=".8"/>
+        <path d="M622 382 C634 420 658 460 686 498" stroke-width="2.8" opacity=".8"/>
+        <path d="M541 428 H659 M513 465 H687 M496 492 H704" stroke-width="2.5" opacity=".8"/>
+        <path d="M541 428 L687 465 M659 428 L513 465 M513 465 L704 492 M687 465 L496 492" stroke-width="2.4" opacity=".55"/>
+        <path d="M492 500 Q600 536 708 500" stroke-width="3.8"/>
       </g>
-      <circle class="tl" cx="600" cy="150" r="5" fill="#ffeec2"/>
-      <rect x="570" y="336" width="60" height="16" rx="4" fill="#f9c6a0" opacity=".85"/>
-      <rect x="578" y="424" width="44" height="12" rx="3" fill="#f9c6a0" opacity=".85"/>
-      <rect x="566" y="358" width="68" height="8" rx="4" fill="#ffdca8" opacity=".65"/>
+
+      <!-- 腿部白条（贴合腿型，非横贯） -->
+      <g fill="#fdf7ef" opacity=".95">
+        <polygon points="523.8,446 508,467 536,466 548,445"/>
+        <polygon points="676.2,446 692,467 664,466 652,445"/>
+      </g>
+      <!-- 上部塔身白带 -->
+      <polygon points="572.2,298 569.9,311 630.1,311 627.8,298" fill="#fdf7ef" opacity=".95"/>
     </g>
 
     <!-- 城市剪影 -->
@@ -354,13 +378,13 @@
       <rect x="228" y="428" width="48" height="192"/><rect x="276" y="474" width="60" height="146"/>
       <rect x="336" y="440" width="40" height="180"/><rect x="376" y="466" width="72" height="154"/>
       <rect x="448" y="428" width="44" height="192"/><rect x="492" y="478" width="56" height="142"/>
-      <rect x="510" y="410" width="190" height="210"/>
+      <rect x="520" y="492" width="160" height="128"/>
       <rect x="700" y="458" width="60" height="162"/><rect x="760" y="426" width="46" height="194"/>
       <rect x="806" y="470" width="70" height="150"/><rect x="876" y="440" width="52" height="180"/>
       <rect x="928" y="464" width="64" height="156"/><rect x="992" y="430" width="48" height="190"/>
       <rect x="1040" y="472" width="74" height="148"/><rect x="1114" y="448" width="86" height="172"/>
     </g>
-    <ellipse class="tl" cx="600" cy="300" rx="150" ry="130" fill="url(#haloN)"/>
+    <ellipse class="tl" cx="600" cy="320" rx="160" ry="155" fill="url(#haloN)"/>
     <g fill="#ffd08a" opacity=".85">
       <rect x="76" y="480" width="6" height="8"/><rect x="92" y="500" width="6" height="8"/>
       <rect x="128" y="432" width="6" height="8"/><rect x="144" y="458" width="6" height="8"/>
